@@ -1,7 +1,7 @@
 <template>
   <div>
     <span>{{ count }}</span>
-    <button @click="count++">count++</button>
+    <button @click="handleClick">count++</button>
   </div>
 </template>
 
@@ -11,6 +11,12 @@ export default {
     return {
       count: 0
     };
+  },
+  methods: {
+    handleClick() {
+      this.count++;
+      this.$emit("change", this.count);
+    }
   }
 };
 </script>
